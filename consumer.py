@@ -29,7 +29,6 @@ consumer = KafkaConsumer(
     sasl_plain_password=KAFKA_PASSWORD,
     auto_offset_reset="earliest",
     enable_auto_commit=False,
-    consumer_timeout_ms=10000,
     value_deserializer=lambda m: json.loads(m.decode('utf-8')),
 )
 
