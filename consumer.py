@@ -56,6 +56,9 @@ def consume_messages():
             else:
                 raw_json = record
 
+            if isinstance(raw_json, str):
+                raw_json = json.loads(raw_json)
+
             track_title = raw_json.get("track_title", "Unknown")
             artists = raw_json.get("artists", "Unknown")
             duration_ms = int(raw_json.get("duration_ms", 0))
