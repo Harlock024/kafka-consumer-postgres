@@ -4,3 +4,4 @@ pymongo
 psycopg2-binary
 sqlalchemy
 python-dotenv
+Flask==2.1.2
