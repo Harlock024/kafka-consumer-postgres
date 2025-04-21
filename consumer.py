@@ -47,6 +47,13 @@ def consume_messages():
         value_deserializer=lambda m: json.loads(m.decode('utf-8')),
     )
 
+
+    try:
+        cur.execute("SELECT NOW();")
+        print("✅ Prueba de SELECT en PostgreSQL exitosa.")
+    except Exception as e:
+        print(f"❌ Fallo la prueba de conexión a PostgreSQL: {e}")
+
     for msg in consumer:
         try:
             record = msg.value
